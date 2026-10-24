@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Painel · Varlene Rotisserie</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1f1d1a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Rubik:wght@500;600;700;800&family=Nunito:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fdf8e6;--card:#fff;--ink:#1f1d1a;--mut:#6b6455;--line:#eee3bf;--or:#1f1d1a;--or2:#000;--dark:#1f1d1a;--green:#1f9d55;--red:#c0392b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:600 15px/1.45 'Nunito',system-ui,sans-serif;min-height:100svh;overflow-x:hidden}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.demo{background:#fbefc2;color:#5a4a10;font-size:.76rem;text-align:center;padding:6px 12px;font-weight:700}
+.demo a{text-decoration:underline}
+header{position:sticky;top:0;z-index:30;background:var(--dark);color:#fbeedd}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;max-width:1240px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand i{width:34px;height:34px;flex:0 0 34px;border-radius:50%;background:#f2c230;display:grid;place-items:center;font-style:normal}
+.brand b{font-family:'Rubik',sans-serif;font-weight:400;font-size:1.05rem;display:block;line-height:1.1;white-space:nowrap}
+.brand small{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.hr{display:flex;align-items:center;gap:8px}
+.shop{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:8px 12px;font-weight:800;font-size:.8rem;background:#2d1c13;color:#fbeedd;white-space:nowrap}
+.shop i{width:9px;height:9px;border-radius:50%;background:#888}
+.shop.open i{background:#3fbf6f;box-shadow:0 0 0 4px rgba(63,191,111,.25)}
+.snd{border:1px solid rgba(251,238,221,.25);background:none;color:#fbeedd;border-radius:999px;width:38px;height:38px;display:grid;place-items:center;font-size:1rem}
+.snd.on{background:var(--or);border-color:var(--or)}
+nav.tabs{display:flex;gap:4px;max-width:1240px;margin:0 auto;padding:0 12px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{flex:0 0 auto;border:0;background:none;color:#fbeedd;opacity:.65;padding:10px 12px 12px;font-weight:800;border-bottom:3px solid transparent}
+nav.tabs button.on{opacity:1;border-color:var(--or)}
+nav.tabs b{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:var(--or);color:#fff;font-size:.7rem;margin-left:4px}
+main{max-width:1240px;margin:0 auto;padding:16px 16px 90px}
+.view{display:none}.view.on{display:block}
+h2{font-family:'Rubik',sans-serif;font-weight:400;font-size:1.5rem;line-height:1.1}
+.sub{color:var(--mut);font-size:.86rem;margin-top:2px}
+.bar{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;background:var(--dark);color:#fff;display:inline-flex;align-items:center;gap:6px;justify-content:center}
+.btn.or{background:var(--or)}.btn.gh{background:#fff;color:var(--ink);border:1px solid var(--line)}.btn.gr{background:var(--green)}.btn.rd{background:none;color:var(--red);border:1px solid #efc9c4}
+.btn:active{transform:scale(.97)}
+.filters{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:14px}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-weight:800;font-size:.84rem}
+.filters button.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+.filters small{opacity:.6;margin-left:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.oc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.oc.new{border-color:var(--or);box-shadow:0 0 0 3px rgba(242,106,27,.18);animation:pop .5s}
+@keyframes pop{0%{transform:scale(.96)}60%{transform:scale(1.02)}}
+.oh{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.oh b{font-size:1.15rem;font-weight:800}.oh small{display:block;color:var(--mut);font-size:.78rem}
+.pill{font-size:.68rem;font-weight:800;border-radius:6px;padding:4px 8px;white-space:nowrap;letter-spacing:.04em}
+.st-novo{background:#ffe3cc;color:#a6430a}.st-forno{background:#ffd9a8;color:#8a4b00}.st-saiu{background:#d9ecff;color:#0b5aa6}.st-pronto{background:#e5dcff;color:#5a36b8}.st-fim{background:#d8f3e2;color:#16703c}.st-cancel{background:#eee;color:#777}
+.its{list-style:none;border-block:1px dashed var(--line);padding:8px 0;display:grid;gap:6px}
+.its li{display:grid;grid-template-columns:auto 1fr auto;gap:8px;font-size:.9rem}
+.its li em{font-style:normal;color:var(--or2);font-weight:800}
+.its li small{grid-column:2/4;color:var(--mut);font-size:.78rem;margin-top:-4px}
+.who{font-size:.86rem;display:grid;gap:2px}
+.who span{color:var(--mut)}
+.tt{display:flex;justify-content:space-between;font-weight:800;font-size:1.05rem}
+.acts{display:flex;gap:6px;flex-wrap:wrap}
+.acts .btn{flex:1 1 auto;padding:10px 10px;font-size:.86rem}
+.acts .mini{flex:0 0 auto}
+.empty{background:#fff;border:1px dashed var(--line);border-radius:16px;padding:30px;text-align:center;color:var(--mut)}
+.ex{font-size:.66rem;background:#f1e7db;color:var(--mut);border-radius:5px;padding:2px 6px;margin-left:6px;vertical-align:middle}
+/* caixa */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
+.kpi small{color:var(--mut);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}
+.kpi b{display:block;font-size:1.5rem;font-weight:800;margin-top:4px}
+.box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:12px}
+.pay{display:grid;gap:12px;margin-top:10px}
+.pay div{display:grid;grid-template-columns:110px 1fr auto;gap:10px;align-items:center;font-size:.9rem}
+.pay u{display:block;height:10px;border-radius:6px;background:#f1e7db;overflow:hidden;text-decoration:none}
+.pay u i{display:block;height:100%;background:var(--or);border-radius:6px}
+.topf{list-style:none;display:grid;gap:8px;margin-top:10px;counter-reset:n}
+.topf li{display:flex;justify-content:space-between;font-size:.9rem;counter-increment:n}
+.topf li::before{content:counter(n)"º";color:var(--mut);width:28px}
+.topf li span{flex:1}
+@media(max-width:760px){.kpis{grid-template-columns:1fr 1fr}.pay div{grid-template-columns:84px 1fr auto}}
+/* cardápio */
+.mcat{margin-top:14px}
+.mcat h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);margin-bottom:6px}
+.prow{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:6px}
+.prow.off{opacity:.55}
+.prow b{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prow small{color:var(--mut);font-size:.76rem}
+.prow label.p{display:flex;align-items:center;gap:4px;font-size:.8rem;color:var(--mut)}
+.prow input[type=number]{width:72px;border:1px solid var(--line);border-radius:8px;padding:7px 8px;font-weight:800;text-align:right;background:#fbf7f2}
+.sw{position:relative;width:46px;height:28px;flex:0 0 46px}
+.sw input{position:absolute;opacity:0;inset:0;cursor:pointer;z-index:1;margin:0}
+.sw span{position:absolute;inset:0;border-radius:99px;background:#d8cbbd;transition:.2s}
+.sw span::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.sw input:checked+span{background:var(--green)}
+.sw input:checked+span::after{transform:translateX(18px)}
+.search{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 14px;background:#fff;font-weight:700}
+@media(max-width:520px){.prow{grid-template-columns:1fr auto}.prow label.p{grid-column:1;grid-row:2}}
+/* ajustes */
+.set{display:grid;gap:12px;max-width:620px}
+.set .box{margin:0}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.seg button{border:1px solid var(--line);background:#fbf7f2;border-radius:10px;padding:10px 12px;font-weight:800}
+.seg button.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+/* toast */
+.toast{position:fixed;left:50%;top:14px;transform:translate(-50%,-200%);visibility:hidden;z-index:90;background:var(--dark);color:#fff;border-radius:14px;padding:12px 16px;font-weight:800;box-shadow:0 14px 40px -12px rgba(0,0,0,.5);transition:transform .35s cubic-bezier(.2,.7,.1,1),visibility .35s;max-width:calc(100% - 24px);display:flex;gap:10px;align-items:center}
+.toast.on{transform:translate(-50%,0);visibility:visible}
+[hidden]{display:none!important}
+.fab{position:fixed;right:16px;bottom:16px;z-index:40;box-shadow:0 12px 30px -10px rgba(0,0,0,.45)}
+/* impressão: só a comanda */
+#print{display:none}
+@media print{
+ @page{size:80mm auto;margin:3mm}
+ body{background:#fff}
+ body>*:not(#print){display:none!important}
+ #print{display:block;font:12px/1.4 'JetBrains Mono',monospace;white-space:pre-wrap;width:74mm;color:#000}
+}
+.tkt{font:.74rem/1.45 'JetBrains Mono',monospace;white-space:pre-wrap;background:#fffdf7;border:1px solid var(--line);border-radius:8px;padding:12px;max-height:0;overflow:hidden;opacity:0;transition:all .3s;padding-block:0}
+.tkt.on{max-height:600px;opacity:1;padding-block:12px}
+</style>
+</head>
+<body>
+<div class="demo">Painel de demonstração · funciona neste navegador. <a href="./" target="_blank" rel="noopener">Abra o site</a> em outra aba, faça um pedido e veja chegar aqui.</div>
+<header>
+ <div class="hd">
+  <div class="brand"><i>🍗</i><div><b>Varlene Rotisserie</b><small>Painel</small></div></div>
+  <div class="hr"><button class="shop" id="shop" type="button"><i></i><span>…</span></button><button class="snd" id="snd" type="button" aria-label="Ativar som de pedido novo" title="Som de pedido novo">🔕</button></div>
+ </div>
+ <nav class="tabs" id="tabs">
+  <button type="button" data-v="pedidos" class="on">Pedidos<b id="nNovo" hidden>0</b></button>
+  <button type="button" data-v="caixa">Caixa</button>
+  <button type="button" data-v="cardapio">Cardápio</button>
+  <button type="button" data-v="ajustes">Ajustes</button>
+ </nav>
+</header>
+
+<main>
+ <section class="view on" id="v-pedidos">
+  <div class="bar"><div><h2>Pedidos de hoje</h2><p class="sub" id="pSub"></p></div><button class="btn gh" id="sim" type="button">+ Simular pedido novo</button></div>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="orders"></div>
+ </section>
+
+ <section class="view" id="v-caixa">
+  <div class="bar"><div><h2>Caixa do dia</h2><p class="sub">Só pedidos entregues ou em andamento. Cancelados ficam de fora.</p></div></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="box"><b>Por forma de pagamento</b><div class="pay" id="pay"></div></div>
+  <div class="box"><b>O que mais saiu</b><ol class="topf" id="topf"></ol></div>
+ </section>
+
+ <section class="view" id="v-cardapio">
+  <div class="bar"><div><h2>Cardápio</h2><p class="sub">Desligou, aparece no site na hora como “esgotado”. Mudou o preço, o site muda junto.</p></div></div>
+  <input class="search" id="q" type="search" placeholder="Procurar item…" autocomplete="off">
+  <div id="plist"></div>
+ </section>
+
+ <section class="view" id="v-ajustes">
+  <div class="bar"><div><h2>Ajustes</h2><p class="sub">O que muda aqui aparece no site do cliente.</p></div></div>
+  <div class="set">
+   <div class="box"><b>Loja</b><p class="sub">Automático segue um horário de exemplo (almoço 11h–14h). A gente ajusta pro horário real.</p><div class="seg" id="mode"><button type="button" data-m="auto">Automático</button><button type="button" data-m="open">Abrir agora</button><button type="button" data-m="closed">Fechar agora</button></div></div>
+   <div class="box"><b>Tempo de entrega</b><p class="sub">Mostrado no topo do site.</p><div class="seg" id="wait"><button type="button">20 a 30 min</button><button type="button">30 a 45 min</button><button type="button">40 a 60 min</button><button type="button">60 a 80 min</button><button type="button">80 a 100 min</button></div></div>
+   <div class="box"><b>Dados de teste</b><p class="sub">Apaga os pedidos e ajustes desta demonstração neste navegador.</p><div class="seg"><button type="button" id="reset">Recomeçar demonstração</button></div></div>
+   <div class="box"><b>Na versão de verdade</b><p class="sub" style="margin-top:6px">Entra com senha (uma pro dono, outra pro funcionário, que não vê o faturamento), funciona em qualquer celular ou computador ao mesmo tempo e o pedido chega pela internet. A impressão sai na impressora térmica do balcão.</p></div>
+  </div>
+ </section>
+</main>
+<div class="toast" id="toast"></div>
+<div id="print"></div>
+
+<script src="dados.js?v=1"></script>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],{brl,esc}=FL;
+const K=FL.KEY;
+const ago=t=>{const m=Math.round((Date.now()-t)/60000);return m<1?'agora':m<60?m+' min atrás':Math.floor(m/60)+'h'+String(m%60).padStart(2,'0')+' atrás'};
+const hhmm=t=>new Date(t).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Sao_Paulo'});
+let toastT;function toast(m){const t=$('#toast');t.innerHTML=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),3200)}
+
+/* pedidos de exemplo pra não começar vazio */
+function seed(){if(localStorage.getItem(K.orders)!==null)return;const n=Date.now(),M=60000;
+ FL.set(K.orders,[
+  {id:n-3,code:'38',ex:1,at:n-5*M,nome:'Cliente exemplo',tel:'35900000000',modo:'retirada',end:'',pag:'Pix',items:[{name:'Frango Assado Inteiro',qty:1,unit:45,opts:[],obs:'bem passado'}],total:45,status:'forno'},
+  {id:n-2,code:'37',ex:1,at:n-24*M,nome:'Cliente exemplo',tel:'35900000000',modo:'entrega',end:'Rua exemplo, 100 · Centro',pag:'Dinheiro',troco:'50',items:[{name:'Marmitex do Dia',qty:2,unit:20,opts:['tamanho: Médio','carnes: Peixe frito'],obs:''}],total:40,status:'pronto'},
+  {id:n-1,code:'36',ex:1,at:n-50*M,nome:'Cliente exemplo',tel:'35900000000',modo:'entrega',end:'Rua exemplo, 200 · Centro',pag:'Cartão na entrega',items:[{name:'Meio Frango Assado',qty:1,unit:26,opts:[],obs:''},{name:'Farofa',qty:1,unit:8,opts:[],obs:''}],total:34,status:'fim'}
+ ])}
+seed();
+
+/* som (precisa de um toque pra liberar no celular) */
+let AC=null,sound=false;
+function beep(){if(!sound||!AC)return;const t=AC.currentTime;[0,.18,.36].forEach((d,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.value=[880,1175,1568][i];g.gain.setValueAtTime(.0001,t+d);g.gain.exponentialRampToValueAtTime(.35,t+d+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d+.25);o.connect(g).connect(AC.destination);o.start(t+d);o.stop(t+d+.3)})}
+$('#snd').onclick=()=>{try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();AC.resume()}catch(e){}sound=!sound;$('#snd').classList.toggle('on',sound);$('#snd').textContent=sound?'🔔':'🔕';if(sound){beep();toast('🔔 Som de pedido novo ligado')}};
+
+/* abas */
+$$('#tabs button').forEach(b=>b.onclick=()=>{$$('#tabs button').forEach(x=>x.classList.toggle('on',x===b));$$('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+b.dataset.v));scrollTo(0,0);render()});
+
+/* loja aberta/fechada */
+function shop(){const c=FL.cfg(),op=FL.isOpen();$('#shop').classList.toggle('open',op);$('#shop span').textContent=(op?'Aberta':'Fechada')+(c.mode==='auto'?' · auto':'');
+ $$('#mode button').forEach(b=>b.classList.toggle('on',b.dataset.m===c.mode));$$('#wait button').forEach(b=>b.classList.toggle('on',b.textContent===c.wait))}
+const saveCfg=p=>{FL.set(K.cfg,Object.assign(FL.cfg(),p));render()};
+$('#shop').onclick=()=>{const op=FL.isOpen();saveCfg({mode:op?'closed':'open'});toast(op?'Loja fechada. O site avisa o cliente.':'Loja aberta. Já pode receber pedido.')};
+$$('#mode button').forEach(b=>b.onclick=()=>saveCfg({mode:b.dataset.m}));
+$$('#wait button').forEach(b=>b.onclick=()=>{saveCfg({wait:b.textContent});toast('Tempo de entrega: '+b.textContent)});
+$('#reset').onclick=()=>{[K.orders,K.cfg,K.mine].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});seed();FL.set(K.cfg,{});known=new Set(FL.get(K.orders,[]).map(o=>o.id));render();toast('Demonstração recomeçada')};
+
+/* pedidos */
+let filter='ativos';
+const FIL=[['ativos','Em andamento',o=>['novo','forno','saiu','pronto'].includes(o.status)],['novo','Novos',o=>o.status==='novo'],['forno','Montando',o=>o.status==='forno'],['saiu','Na entrega',o=>o.status==='saiu'||o.status==='pronto'],['fim','Concluídos',o=>o.status==='fim'],['cancel','Cancelados',o=>o.status==='cancel']];
+const NEXT={novo:['forno','Aceitar pedido','or'],forno:[null,'',''],saiu:['fim','Marcar entregue','gr'],pronto:['fim','Cliente retirou','gr']};
+const LBL={novo:'NOVO',forno:'MONTANDO',saiu:'SAIU P/ ENTREGA',pronto:'PRONTO P/ RETIRAR',fim:'ENTREGUE',cancel:'CANCELADO'};
+const orders=()=>FL.get(K.orders,[]);
+function setStatus(id,st){const all=orders(),o=all.find(x=>x.id===id);if(!o)return;o.status=st;o.upd=Date.now();FL.set(K.orders,all);render();
+ toast({forno:'🔥 #'+o.code+' em preparo. O cliente já vê.',saiu:'🛵 #'+o.code+' saiu pra entrega',pronto:'🥡 #'+o.code+' pronto pra retirar',fim:'✅ #'+o.code+' concluído',cancel:'#'+o.code+' cancelado'}[st])}
+function ticket(o){const L='--------------------------------';return `      VARLENE ROTISSERIE\n   PEDIDO #${o.code} · ${hhmm(o.at)}\n${L}\n${o.items.map(i=>`${i.qty}x ${i.name.toUpperCase()}${i.opts.map(x=>'\n   '+x).join('')}${i.obs?'\n   obs: '+i.obs:''}`).join('\n')}\n${L}\nCLIENTE: ${o.nome}\nFONE: ${o.tel}\n${o.modo==='entrega'?'ENTREGA: '+o.end:'RETIRADA NO BALCÃO'}\nPAGAMENTO: ${o.pag}${o.pag==='Dinheiro'&&o.troco?' · troco p/ R$ '+o.troco:''}\n${L}\nTOTAL: ${brl(o.total)}`}
+function card(o){const nx=o.status==='forno'?(o.modo==='entrega'?['saiu','Saiu pra entrega 🛵','or']:['pronto','Pronto pra retirar','or']):NEXT[o.status];
+ return `<article class="oc${o.status==='novo'?' new':''}" data-id="${o.id}">
+ <div class="oh"><div><b>#${o.code}</b>${o.ex?'<span class="ex">exemplo</span>':''}<small>${hhmm(o.at)} · ${ago(o.at)}</small></div><span class="pill st-${o.status}">${LBL[o.status]}</span></div>
+ <ul class="its">${o.items.map(i=>`<li><em>${i.qty}x</em><span>${esc(i.name)}</span><span>${brl(i.unit*i.qty)}</span>${i.opts.length||i.obs?`<small>${esc([...i.opts,i.obs&&'obs: '+i.obs].filter(Boolean).join(' · '))}</small>`:''}</li>`).join('')}</ul>
+ <div class="who"><b>${esc(o.nome)}</b><span>${o.modo==='entrega'?'🛵 '+esc(o.end):'🥡 Vai retirar no balcão'}</span><span>💳 ${esc(o.pag)}${o.pag==='Dinheiro'&&o.troco?' · troco p/ R$ '+esc(o.troco):''}</span></div>
+ <div class="tt"><span>Total</span><span>${brl(o.total)}</span></div>
+ <div class="acts">${nx&&nx[0]?`<button class="btn ${nx[2]}" type="button" data-go="${nx[0]}">${nx[1]}</button>`:''}
+  <button class="btn gh mini" type="button" data-print>🖨️ Imprimir</button><a class="btn gh mini" href="https://wa.me/55${esc(o.tel.replace(/^55/,''))}" target="_blank" rel="noopener">WhatsApp</a>${['novo','forno'].includes(o.status)?`<button class="btn rd mini" type="button" data-go="cancel">Recusar</button>`:''}</div>
+ <div class="tkt">${esc(ticket(o))}</div></article>`}
+function renderOrders(){const all=orders();
+ $('#filters').innerHTML=FIL.map(([k,n,fn])=>`<button type="button" data-f="${k}" class="${k===filter?'on':''}">${n}<small>${all.filter(fn).length}</small></button>`).join('');
+ $$('#filters button').forEach(b=>b.onclick=()=>{filter=b.dataset.f;renderOrders()});
+ const list=all.filter(FIL.find(f=>f[0]===filter)[2]);
+ $('#orders').innerHTML=list.length?list.map(card).join(''):`<div class="empty">Nenhum pedido aqui.<br>Faça um pelo <a href="./" target="_blank" rel="noopener" style="color:var(--or2);font-weight:800">site</a> ou toque em “Simular pedido novo”.</div>`;
+ const nv=all.filter(o=>o.status==='novo').length;$('#nNovo').hidden=!nv;$('#nNovo').textContent=nv;
+ const act=all.filter(FIL[0][2]).length;$('#pSub').textContent=act?act+' em andamento agora':'Tudo em dia por enquanto';
+ document.title=(nv?'('+nv+') ':'')+'Painel · Varlene Rotisserie'}
+$('#orders').addEventListener('click',e=>{const c=e.target.closest('.oc');if(!c)return;const id=+c.dataset.id;
+ const g=e.target.closest('[data-go]');if(g){setStatus(id,g.dataset.go);return}
+ if(e.target.closest('[data-print]')){const o=orders().find(x=>x.id===id);$('#print').textContent=ticket(o);c.querySelector('.tkt').classList.toggle('on');setTimeout(()=>{try{window.print()}catch(err){}},60)}});
+
+/* simular */
+const NOMES=['Cliente teste','Pedido de teste'];
+$('#sim').onclick=()=>{const ps=FL.PRODUCTS.filter(p=>true&&!FL.cfg().off.includes(p.id));const p=ps[Math.floor(Math.random()*ps.length)],sz=FL.sizes(p),all=orders(),q=1+Math.floor(Math.random()*2),u=sz[sz.length-1];
+ const o={id:Date.now(),code:String(39+all.filter(x=>!x.ex).length),at:Date.now(),nome:NOMES[all.length%2],tel:'33900000000',modo:Math.random()>.3?'entrega':'retirada',end:'Rua de teste, 50 · Centro',pag:['Pix','Dinheiro','Cartão na entrega'][Math.floor(Math.random()*3)],troco:'',items:[{name:p.name,qty:q,unit:u,opts:sz.length>1?['tamanho: '+p.szn[sz.length-1]]:[],obs:''}],total:u*q,status:'novo'};
+ if(o.modo==='retirada')o.end='';if(o.pag==='Dinheiro')o.troco='100';
+ all.unshift(o);FL.set(K.orders,all);check()};
+
+/* caixa */
+function renderCaixa(){const all=orders().filter(o=>o.status!=='cancel'),tot=all.reduce((s,o)=>s+o.total,0),n=all.length;
+ $('#kpis').innerHTML=[['Vendido hoje',brl(tot)],['Pedidos',n],['Ticket médio',brl(n?tot/n:0)],['Cancelados',orders().length-n]].map(k=>`<div class="kpi"><small>${k[0]}</small><b>${k[1]}</b></div>`).join('');
+ const by={};all.forEach(o=>{by[o.pag]=(by[o.pag]||0)+o.total});const mx=Math.max(1,...Object.values(by));
+ $('#pay').innerHTML=['Pix','Dinheiro','Cartão na entrega'].map(p=>`<div><span>${p==='Cartão na entrega'?'Cartão':p}</span><u><i style="width:${(by[p]||0)/mx*100}%"></i></u><b>${brl(by[p]||0)}</b></div>`).join('');
+ const cnt={};all.forEach(o=>o.items.forEach(i=>{cnt[i.name]=(cnt[i.name]||0)+i.qty}));const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,5);
+ $('#topf').innerHTML=top.length?top.map(([k,v])=>`<li><span>${esc(k)}</span><b>${v}</b></li>`).join(''):'<li><span>Sem vendas ainda</span></li>'}
+
+/* cardápio */
+function renderMenu(){const c=FL.cfg(),q=($('#q').value||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+ $('#plist').innerHTML=FL.CATS.map(cat=>{const ps=FL.PRODUCTS.filter(p=>p.cat===cat.id&&p.name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').includes(q));if(!ps.length)return'';
+  return `<div class="mcat"><h3>${cat.name}</h3>${ps.map(p=>{const on=!c.off.includes(p.id),sz=FL.sizes(p);return `<div class="prow${on?'':' off'}"><div style="min-width:0"><b>${esc(p.name)}</b><small>${on?'Aparecendo no site':'Esgotado no site'}${sz.length>1?' · grande '+brl(sz[1]):''}</small></div><label class="p">${sz.length>1?'Média':'Preço'} R$<input type="number" min="1" step="1" value="${sz[0]}" data-pr="${p.id}"></label><label class="sw" title="Disponível"><input type="checkbox" data-sw="${p.id}"${on?' checked':''} aria-label="${esc(p.name)} disponível"><span></span></label></div>`}).join('')}</div>`}).join('')||'<div class="empty" style="margin-top:12px">Nenhum item com esse nome.</div>'}
+$('#q').addEventListener('input',renderMenu);
+$('#plist').addEventListener('change',e=>{const c=FL.cfg();const sw=e.target.dataset.sw,pr=e.target.dataset.pr;
+ if(sw){c.off=e.target.checked?c.off.filter(x=>x!==sw):[...new Set([...c.off,sw])];FL.set(K.cfg,c);const p=FL.PRODUCTS.find(x=>x.id===sw);toast(e.target.checked?p.name+' voltou pro site':p.name+' marcado como esgotado');renderMenu()}
+ if(pr){const v=Math.round(+e.target.value);if(!(v>0)){renderMenu();return}c.price[pr]=v;FL.set(K.cfg,c);toast('Preço atualizado no site');renderMenu()}});
+
+/* chegada de pedido novo */
+let known=new Set(orders().map(o=>o.id));
+let sig='';
+function check(force){const now=(localStorage.getItem(K.orders)||'')+(localStorage.getItem(K.cfg)||'');if(!force&&now===sig)return;sig=now;const all=orders(),nw=all.filter(o=>!known.has(o.id));nw.forEach(o=>known.add(o.id));
+ if(nw.length){beep();const o=nw[0];toast(`🔔 Pedido novo #${o.code} · ${esc(o.items[0].name)} · ${brl(o.total)}`);if(filter!=='ativos'&&filter!=='novo'){filter='ativos'}if(!$('#v-pedidos').classList.contains('on'))$('#tabs button').click()}
+ render()}
+function render(){shop();renderOrders();if($('#v-caixa').classList.contains('on'))renderCaixa();if($('#v-cardapio').classList.contains('on')&&document.activeElement?.dataset?.pr==null&&document.activeElement!==$('#q'))renderMenu();else if($('#v-cardapio').classList.contains('on')&&!$('#plist').innerHTML)renderMenu()}
+FL.on(()=>check());setInterval(()=>check(),3000);setInterval(renderOrders,30000);
+render();
+})();
+</script>
+</body>
+</html>
